@@ -1,0 +1,28 @@
+@token = Bearer {{signIn.response.body.data.token}}
+
+POST {{host}}/api/auth/sign-up HTTP/1.1
+content-type: application/json
+
+{
+  "username": "test",
+  "password": "123456"
+}
+
+###
+
+GET {{host}}/api/auth/users HTTP/1.1
+content-type: application/json
+Authorization: {{token}}
+
+###
+
+# @name signIn
+POST {{host}}/api/auth/sign-in HTTP/1.1
+content-type: application/json
+
+{
+  "username": "test",
+  "password": "123456"
+}
+
+###

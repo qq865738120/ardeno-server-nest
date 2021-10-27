@@ -1,0 +1,14 @@
+{
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "server": "ddnszwj.top",
+      "port": 54321,
+      "driver": "PostgreSQL",
+      "name": "db",
+      "database": "ardeno-server-test-db",
+      "username": "postgres",
+      "password": "Postgres675919"
+    }
+  ]
+}

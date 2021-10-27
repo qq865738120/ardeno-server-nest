@@ -7,9 +7,15 @@ const typeOrmConfig: TypeOrmModuleOptions = {
   username: 'postgres',
   password: 'Postgres675919',
   database: 'ardeno-server-test-db',
-  entities: [`${__dirname}/../entity/**/*.{js,ts}`],
-  synchronize: false,
-  logging: ['error'],
+  entities: [`${__dirname}/../src/**/*.entity.{js,ts}`],
+  autoLoadEntities: true,
+  synchronize: true,
+  logging: true,
+};
+
+const jwt = {
+  secret: 'AJHDKJHFKHEKHFKEUYIRYIRJ',
+  expiration: '60s',
 };
 
 export default {
@@ -19,4 +25,5 @@ export default {
     host: '0.0.0.0',
   },
   database: typeOrmConfig,
+  jwt,
 };

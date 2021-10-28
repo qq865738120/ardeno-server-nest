@@ -10,9 +10,9 @@ import {
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { ApiTags, ApiBearerAuth } from '@nestjs/swagger';
-import { AuthService } from 'src/auth/auth.service';
 import { CreateUserRequestDto } from '@/user/dto/create-user-request.dto';
 import { UserLoginRequestDto } from '@/user/dto/user-login-request.dto';
+import { AuthService } from './auth.service';
 
 @ApiBearerAuth()
 @ApiTags('Auth')
@@ -28,8 +28,8 @@ export class AuthController {
 
   @Post('sign-up')
   async register(@Body() req: CreateUserRequestDto) {
+    console.log('req', req);
     const result = await this.authService.register(req);
-    Logger.log(result, 'result');
     console.log(result.username, result);
     return result;
   }

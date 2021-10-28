@@ -634,7 +634,7 @@
     "@types/jsonwebtoken" "8.5.4"
     jsonwebtoken "8.5.1"
 
-"@nestjs/mapped-types@1.0.0":
+"@nestjs/mapped-types@1.0.0", "@nestjs/mapped-types@^1.0.0":
   version "1.0.0"
   resolved "https://registry.nlark.com/@nestjs/mapped-types/download/@nestjs/mapped-types-1.0.0.tgz#52a0441795f6da8144a35970d3ebc19281f31cfd"
   integrity sha1-UqBEF5X22oFEo1lw0+vBkoHzHP0=
@@ -1777,6 +1777,11 @@ cjs-module-lexer@^1.0.0:
   version "1.2.2"
   resolved "https://registry.nlark.com/cjs-module-lexer/download/cjs-module-lexer-1.2.2.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fcjs-module-lexer%2Fdownload%2Fcjs-module-lexer-1.2.2.tgz#9f84ba3244a512f3a54e5277e8eef4c489864e40"
   integrity sha1-n4S6MkSlEvOlTlJ36O70xImGTkA=
+
+class-transformer@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.nlark.com/class-transformer/download/class-transformer-0.4.0.tgz#b52144117b423c516afb44cc1c76dbad31c2165b"
+  integrity sha1-tSFEEXtCPFFq+0TMHHbbrTHCFls=
 
 class-validator@^0.13.1:
   version "0.13.1"

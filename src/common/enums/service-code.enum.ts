@@ -19,4 +19,9 @@ export enum ServiceCodeEnum {
    * 密码不正确
    */
   INCORRECT_PASSWORD = 100002,
+
+  /**
+   * 用户已存在
+   */
+  USER_ALREADY_EXISTS = 100003,
 }

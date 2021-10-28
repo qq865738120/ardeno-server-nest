@@ -25,7 +25,7 @@ export class UserService {
     const userInfo = await this.findUsername(createUserRequestDto.username);
     if (userInfo) {
       throw new ServiceHttpException(
-        ServiceCodeEnum.SUCCESS,
+        ServiceCodeEnum.USER_ALREADY_EXISTS,
         HttpStatus.BAD_REQUEST,
       );
     }

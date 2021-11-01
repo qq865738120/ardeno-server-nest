@@ -16,13 +16,14 @@ import { AuthService } from './auth.service';
 
 @ApiBearerAuth()
 @ApiTags('Auth')
-@Controller('api/auth')
+@Controller('auth')
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
   @UseGuards(AuthGuard('jwt'))
   @Get('users')
   async findAll(@Request() req): Promise<any[]> {
+    console.log('req', req.user);
     return await this.authService.findAll();
   }
 

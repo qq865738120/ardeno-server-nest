@@ -376,6 +376,15 @@
   dependencies:
     ajv "^6.12.6"
 
+"@fastify/csrf@^4.0.0":
+  version "4.0.1"
+  resolved "https://registry.npmmirror.com/@fastify/csrf/download/@fastify/csrf-4.0.1.tgz#0d1e1990ee01fffafb85a971c1dd475c5b7d3dad"
+  integrity sha1-DR4ZkO4B//r7halxwd1HXFt9Pa0=
+  dependencies:
+    rndm "^1.2.0"
+    tsscmp "^1.0.6"
+    uid-safe "^2.1.5"
+
 "@humanwhocodes/config-array@^0.5.0":
   version "0.5.0"
   resolved "https://registry.npmmirror.com/@humanwhocodes/config-array/download/@humanwhocodes/config-array-0.5.0.tgz#1407967d4c6eecd7388f83acf1eaf4d0c6e58ef9"
@@ -695,6 +704,13 @@
   dependencies:
     optional "0.1.4"
     tslib "2.3.1"
+
+"@nestjs/throttler@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.nlark.com/@nestjs/throttler/download/@nestjs/throttler-2.0.0.tgz#bb5f627cbaee369703d3d8d4ec7af6e4c6ab693a"
+  integrity sha1-u19ifLruNpcD09jU7Hr25MaraTo=
+  dependencies:
+    md5 "^2.2.1"
 
 "@nestjs/typeorm@^8.0.2":
   version "8.0.2"
@@ -1748,6 +1764,11 @@ chardet@^0.7.0:
   resolved "https://registry.npmmirror.com/chardet/download/chardet-0.7.0.tgz?cache=0&sync_timestamp=1634639108550&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fchardet%2Fdownload%2Fchardet-0.7.0.tgz#90094849f0937f2eedc2425d0d28a9e5f0cbad9e"
   integrity sha1-kAlISfCTfy7twkJdDSip5fDLrZ4=
 
+charenc@0.0.2:
+  version "0.0.2"
+  resolved "https://registry.npm.taobao.org/charenc/download/charenc-0.0.2.tgz#c0a1d2f3a7092e03774bfa83f14c0fc5790a8667"
+  integrity sha1-wKHS86cJLgN3S/qD8UwPxXkKhmc=
+
 chokidar@3.5.2, chokidar@^3.4.2:
   version "3.5.2"
   resolved "https://registry.nlark.com/chokidar/download/chokidar-3.5.2.tgz#dba3976fcadb016f66fd365021d91600d01c1e75"
@@ -1957,6 +1978,11 @@ cookie-signature@1.0.6:
   resolved "https://registry.nlark.com/cookie-signature/download/cookie-signature-1.0.6.tgz#e303a882b342cc3ee8ca513a79999734dab3ae2c"
   integrity sha1-4wOogrNCzD7oylE6eZmXNNqzriw=
 
+cookie-signature@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.nlark.com/cookie-signature/download/cookie-signature-1.1.0.tgz#cc94974f91fb9a9c1bb485e95fc2b7f4b120aff2"
+  integrity sha1-zJSXT5H7mpwbtIXpX8K39LEgr/I=
+
 cookie@0.4.0:
   version "0.4.0"
   resolved "https://registry.npm.taobao.org/cookie/download/cookie-0.4.0.tgz#beb437e7022b3b6d49019d088665303ebe9c14ba"
@@ -2016,6 +2042,11 @@ cross-spawn@^7.0.0, cross-spawn@^7.0.1, cross-spawn@^7.0.2, cross-spawn@^7.0.3:
     path-key "^3.1.0"
     shebang-command "^2.0.0"
     which "^2.0.1"
+
+crypt@0.0.2:
+  version "0.0.2"
+  resolved "https://registry.npm.taobao.org/crypt/download/crypt-0.0.2.tgz#88d7ff7ec0dfb86f713dc87bbb42d044d3e6c41b"
+  integrity sha1-iNf/fsDfuG9xPch7u0LQRNPmxBs=
 
 cssom@^0.4.4:
   version "0.4.4"
@@ -2547,6 +2578,15 @@ fast-safe-stringify@2.1.1, fast-safe-stringify@^2.0.7, fast-safe-stringify@^2.0.
   resolved "https://registry.nlark.com/fast-safe-stringify/download/fast-safe-stringify-2.1.1.tgz?cache=0&sync_timestamp=1631085574972&other_urls=https%3A%2F%2Fregistry.nlark.com%2Ffast-safe-stringify%2Fdownload%2Ffast-safe-stringify-2.1.1.tgz#c406a83b6e70d9e35ce3b30a81141df30aeba884"
   integrity sha1-xAaoO25w2eNc47MKgRQd8wrrqIQ=
 
+fastify-cookie@^5.3.1:
+  version "5.3.1"
+  resolved "https://registry.nlark.com/fastify-cookie/download/fastify-cookie-5.3.1.tgz#97b17f3f297b06ffc8e27fe7a0398aefa9df74f0"
+  integrity sha1-l7F/Pyl7Bv/I4n/noDmK76nfdPA=
+  dependencies:
+    cookie "^0.4.0"
+    cookie-signature "^1.1.0"
+    fastify-plugin "^3.0.0"
+
 fastify-cors@6.0.2:
   version "6.0.2"
   resolved "https://registry.nlark.com/fastify-cors/download/fastify-cors-6.0.2.tgz#4fd5102549659e9b34d252fd7ee607b63d021390"
@@ -2554,6 +2594,15 @@ fastify-cors@6.0.2:
   dependencies:
     fastify-plugin "^3.0.0"
     vary "^1.1.2"
+
+fastify-csrf@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.npmmirror.com/fastify-csrf/download/fastify-csrf-3.1.0.tgz#55d963791cd7c8020238f484d29e3d216fbcac89"
+  integrity sha1-VdljeRzXyAICOPSE0p49IW+8rIk=
+  dependencies:
+    "@fastify/csrf" "^4.0.0"
+    fastify-plugin "^3.0.0"
+    http-errors "^1.8.0"
 
 fastify-error@^0.3.0:
   version "0.3.1"
@@ -2566,6 +2615,14 @@ fastify-formbody@5.1.0:
   integrity sha1-ZczPl5KqwaY4kn9xUM0eowkI2Nw=
   dependencies:
     fastify-plugin "^3.0.0"
+
+fastify-helmet@^5.3.2:
+  version "5.3.2"
+  resolved "https://registry.nlark.com/fastify-helmet/download/fastify-helmet-5.3.2.tgz#eda259b8a9ad5ccc6dacc1b7ed358c03f59a7f7f"
+  integrity sha1-7aJZuKmtXMxtrMG37TWMA/Waf38=
+  dependencies:
+    fastify-plugin "^3.0.0"
+    helmet "^4.0.0"
 
 fastify-plugin@^3.0.0:
   version "3.0.0"
@@ -2922,6 +2979,11 @@ has@^1.0.3:
   dependencies:
     function-bind "^1.1.1"
 
+helmet@^4.0.0:
+  version "4.6.0"
+  resolved "https://registry.nlark.com/helmet/download/helmet-4.6.0.tgz#579971196ba93c5978eb019e4e8ec0e50076b4df"
+  integrity sha1-V5lxGWupPFl46wGeTo7A5QB2tN8=
+
 highlight.js@^10.7.1:
   version "10.7.3"
   resolved "https://registry.npmmirror.com/highlight.js/download/highlight.js-10.7.3.tgz#697272e3991356e40c3cac566a74eef681756531"
@@ -2947,6 +3009,17 @@ http-errors@1.7.2:
     depd "~1.1.2"
     inherits "2.0.3"
     setprototypeof "1.1.1"
+    statuses ">= 1.5.0 < 2"
+    toidentifier "1.0.0"
+
+http-errors@^1.8.0:
+  version "1.8.0"
+  resolved "https://registry.npm.taobao.org/http-errors/download/http-errors-1.8.0.tgz#75d1bbe497e1044f51e4ee9e704a62f28d336507"
+  integrity sha1-ddG75JfhBE9R5O6ecEpi8o0zZQc=
+  dependencies:
+    depd "~1.1.2"
+    inherits "2.0.4"
+    setprototypeof "1.2.0"
     statuses ">= 1.5.0 < 2"
     toidentifier "1.0.0"
 
@@ -3109,6 +3182,11 @@ is-binary-path@~2.1.0:
   integrity sha1-6h9/O4DwZCNug0cPhsCcJU+0Wwk=
   dependencies:
     binary-extensions "^2.0.0"
+
+is-buffer@~1.1.6:
+  version "1.1.6"
+  resolved "https://registry.npm.taobao.org/is-buffer/download/is-buffer-1.1.6.tgz#efaa2ea9daa0d7ab2ea13a97b2b8ad51fefbe8be"
+  integrity sha1-76ouqdqg16suoTqXsritUf776L4=
 
 is-core-module@^2.2.0:
   version "2.8.0"
@@ -3979,6 +4057,15 @@ makeerror@1.0.x:
   dependencies:
     tmpl "1.0.x"
 
+md5@^2.2.1:
+  version "2.3.0"
+  resolved "https://registry.npm.taobao.org/md5/download/md5-2.3.0.tgz#c3da9a6aae3a30b46b7b0c349b87b110dc3bda4f"
+  integrity sha1-w9qaaq46MLRreww0m4exENw72k8=
+  dependencies:
+    charenc "0.0.2"
+    crypt "0.0.2"
+    is-buffer "~1.1.6"
+
 media-typer@0.3.0:
   version "0.3.0"
   resolved "https://registry.npm.taobao.org/media-typer/download/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
@@ -4652,6 +4739,11 @@ quick-format-unescaped@^4.0.3:
   resolved "https://registry.nlark.com/quick-format-unescaped/download/quick-format-unescaped-4.0.4.tgz#93ef6dd8d3453cbc7970dd614fad4c5954d6b5a7"
   integrity sha1-k+9t2NNFPLx5cN1hT61MWVTWtac=
 
+random-bytes@~1.0.0:
+  version "1.0.0"
+  resolved "https://registry.nlark.com/random-bytes/download/random-bytes-1.0.0.tgz#4f68a1dc0ae58bd3fb95848c30324db75d64360b"
+  integrity sha1-T2ih3Arli9P7lYSMMDJNt11kNgs=
+
 randombytes@^2.1.0:
   version "2.1.0"
   resolved "https://registry.nlark.com/randombytes/download/randombytes-2.1.0.tgz#df6f84372f0270dc65cdf6291349ab7a473d4f2a"
@@ -4805,6 +4897,11 @@ rimraf@3.0.2, rimraf@^3.0.0, rimraf@^3.0.2:
   dependencies:
     glob "^7.1.3"
 
+rndm@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.nlark.com/rndm/download/rndm-1.2.0.tgz#f33fe9cfb52bbfd520aa18323bc65db110a1b76c"
+  integrity sha1-8z/pz7Urv9UgqhgyO8ZdsRCht2w=
+
 run-async@^2.4.0:
   version "2.4.1"
   resolved "https://registry.npm.taobao.org/run-async/download/run-async-2.4.1.tgz#8440eccf99ea3e70bd409d49aab88e10c189a455"
@@ -4955,6 +5052,11 @@ setprototypeof@1.1.1:
   version "1.1.1"
   resolved "https://registry.nlark.com/setprototypeof/download/setprototypeof-1.1.1.tgz#7e95acb24aa92f5885e0abef5ba131330d4ae683"
   integrity sha1-fpWsskqpL1iF4KvvW6ExMw1K5oM=
+
+setprototypeof@1.2.0:
+  version "1.2.0"
+  resolved "https://registry.npm.taobao.org/setprototypeof/download/setprototypeof-1.2.0.tgz#66c9a24a73f9fc28cbe66b09fed3d33dcaf1b424"
+  integrity sha1-ZsmiSnP5/CjL5msJ/tPTPcrxtCQ=
 
 sha.js@^2.4.11:
   version "2.4.11"
@@ -5452,6 +5554,11 @@ tslib@~2.1.0:
   resolved "https://registry.nlark.com/tslib/download/tslib-2.1.0.tgz#da60860f1c2ecaa5703ab7d39bc05b6bf988b97a"
   integrity sha1-2mCGDxwuyqVwOrfTm8Bba/mIuXo=
 
+tsscmp@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.nlark.com/tsscmp/download/tsscmp-1.0.6.tgz#85b99583ac3589ec4bfef825b5000aa911d605eb"
+  integrity sha1-hbmVg6w1iexL/vgltQAKqRHWBes=
+
 tsutils@^3.21.0:
   version "3.21.0"
   resolved "https://registry.npm.taobao.org/tsutils/download/tsutils-3.21.0.tgz#b48717d394cea6c1e096983eed58e9d61715b623"
@@ -5540,6 +5647,13 @@ typescript@^4.3.5:
   version "4.4.4"
   resolved "https://registry.npmmirror.com/typescript/download/typescript-4.4.4.tgz?cache=0&sync_timestamp=1634714447848&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Ftypescript%2Fdownload%2Ftypescript-4.4.4.tgz#2cd01a1a1f160704d3101fd5a58ff0f9fcb8030c"
   integrity sha1-LNAaGh8WBwTTEB/VpY/w+fy4Aww=
+
+uid-safe@^2.1.5:
+  version "2.1.5"
+  resolved "https://registry.npm.taobao.org/uid-safe/download/uid-safe-2.1.5.tgz#2b3d5c7240e8fc2e58f8aa269e5ee49c0857bd3a"
+  integrity sha1-Kz1cckDo/C5Y+Komnl7knAhXvTo=
+  dependencies:
+    random-bytes "~1.0.0"
 
 universalify@^0.1.2:
   version "0.1.2"

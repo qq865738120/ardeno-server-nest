@@ -5,11 +5,12 @@ import {
 } from '@nestjs/platform-fastify';
 import { AppModule } from './app.module';
 import * as config from 'config';
-import { Logger, ValidationPipe } from '@nestjs/common';
+import { Logger, ValidationPipe, VersioningType } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { HttpExceptionFilter } from './common/filters/http-exception.filter';
 import { TransformInterceptor } from './common/interceptors/transform.interceptor';
 import { ServiceHttpExceptionFilter } from './common/filters/service-http-exception.filter';
+import { fastifyHelmet } from 'fastify-helmet';
 
 async function bootstrap() {
   const env = config.util.getEnv('NODE_ENV') || 'development';
@@ -18,7 +19,16 @@ async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(
     AppModule,
     new FastifyAdapter(),
+    {
+      cors: true,
+    },
   );
+
+  app.enableVersioning({
+    type: VersioningType.URI,
+    prefix: 'v',
+    defaultVersion: '1',
+  });
 
   app.useGlobalInterceptors(new TransformInterceptor());
   app.useGlobalFilters(new HttpExceptionFilter());
@@ -29,6 +39,7 @@ async function bootstrap() {
       transform: true,
     }),
   );
+  await app.register(fastifyHelmet);
 
   const documentConfig = new DocumentBuilder()
     .setTitle('API文档')

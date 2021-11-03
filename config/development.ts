@@ -15,15 +15,10 @@ const typeOrmConfig: TypeOrmModuleOptions = {
 
 const jwt = {
   secret: 'AJHDKJHFKHEKHFKEUYIRYIRJ',
-  expiration: '60s',
+  expiration: '604800s',
 };
 
 export default {
-  test: 'development',
-  server: {
-    port: 3000,
-    host: '0.0.0.0',
-  },
   database: typeOrmConfig,
   jwt,
 };

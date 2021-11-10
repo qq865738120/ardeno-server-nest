@@ -19,7 +19,7 @@ const jwt = {
 };
 
 export default {
-  test: '123',
+  test: 'product',
   database: typeOrmConfig,
   jwt,
 };

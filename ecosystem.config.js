@@ -37,5 +37,19 @@ module.exports = {
         NODE_ENV: 'production',
       },
     },
+    development: {
+      name: 'ardeno-server-develop',
+      user: 'root',
+      host: 'frp.ddnszwj.top',
+      port: '6004',
+      ref: 'origin/develop',
+      repo: 'git@github.com:qq865738120/ardeno-server-nest.git',
+      path: '/root/projects/ardeno/server/development',
+      ssh_options: ['StrictHostKeyChecking=no', 'PasswordAuthentication=no'],
+      'post-deploy': 'npm install && yarn build && pm2 start --env development',
+      env: {
+        NODE_ENV: 'development',
+      },
+    },
   },
 };

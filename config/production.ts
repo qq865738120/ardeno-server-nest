@@ -1,5 +1,10 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 
+const server = {
+  port: 3000,
+  host: '0.0.0.0',
+};
+
 const typeOrmConfig: TypeOrmModuleOptions = {
   type: 'postgres',
   host: 'nas.ddnszwj.top',
@@ -20,6 +25,7 @@ const jwt = {
 
 export default {
   test: 'product',
+  server,
   database: typeOrmConfig,
   jwt,
 };

@@ -1,3 +1,8 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const { execSync } = require('child_process');
+const stdout = execSync('git rev-parse HEAD');
+console.log('Last commit hash on this branch is:', stdout);
+
 module.exports = {
   apps: [
     {

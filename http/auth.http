@@ -1,6 +1,7 @@
 @token = Bearer {{signIn.response.body.data.token}}
+@hostPath = {{host}}/{{prefix}}/{{version}}
 
-POST {{host}}/{{version}}/auth/sign-up HTTP/1.1
+POST {{hostPath}}/auth/sign-up HTTP/1.1
 content-type: application/json
 
 {
@@ -10,14 +11,14 @@ content-type: application/json
 
 ###
 
-GET {{host}}/{{version}}/auth/users HTTP/1.1
+GET {{hostPath}}/auth/users HTTP/1.1
 content-type: application/json
 Authorization: {{token}}
 
 ###
 
 # @name signIn
-POST {{host}}/{{version}}/auth/sign-in HTTP/1.1
+POST {{hostPath}}/auth/sign-in HTTP/1.1
 content-type: application/json
 
 {

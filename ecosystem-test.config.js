@@ -35,7 +35,7 @@ module.exports = {
       path: '/root/projects/ardeno/server/development',
       ssh_options: ['StrictHostKeyChecking=no', 'PasswordAuthentication=no'],
       'post-deploy':
-        'npm install && yarn build && pm2 start --name ardeno-server-test',
+        'npm install && yarn build && pm2 startOrGracefulReload ecosystem-test.config.js',
     },
   },
 };

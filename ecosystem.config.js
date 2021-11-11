@@ -1,8 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const { execSync } = require('child_process');
-const stdout = execSync('git rev-parse HEAD');
-console.log('Last commit hash on this branch is:', stdout);
-
 module.exports = {
   apps: [
     {
@@ -40,7 +35,7 @@ module.exports = {
       repo: 'git@github.com:qq865738120/ardeno-server-nest.git',
       path: '/root/projects/ardeno/server/production',
       ssh_options: ['StrictHostKeyChecking=no', 'PasswordAuthentication=no'],
-      'pre-deploy': 'git pull && git tag test-tag-2 && git push origin --tags',
+      'pre-deploy': 'git pull',
       'post-deploy':
         'npm install && yarn build && pm2 startOrGracefulReload ecosystem.config.js',
     },

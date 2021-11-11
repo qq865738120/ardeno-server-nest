@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: 'ardeno-server',
+      name: 'ardeno-server-test',
       cwd: './',
       script: 'yarn',
       args: 'start:prod',
@@ -20,20 +20,19 @@ module.exports = {
       restart_delay: 60,
       max_memory_restart: '1G',
       env: {
-        // 指定为生成环境
-        NODE_ENV: 'production',
+        NODE_ENV: 'development',
       },
     },
   ],
 
   deploy: {
-    production: {
+    development: {
       user: 'root',
       host: 'frp.ddnszwj.top',
       port: '6004',
-      ref: 'origin/master',
+      ref: 'origin/develop',
       repo: 'git@github.com:qq865738120/ardeno-server-nest.git',
-      path: '/root/projects/ardeno/server/production',
+      path: '/root/projects/ardeno/server/development',
       ssh_options: ['StrictHostKeyChecking=no', 'PasswordAuthentication=no'],
       'post-deploy': 'npm install && yarn build && pm2 start',
     },

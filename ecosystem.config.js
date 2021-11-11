@@ -35,6 +35,7 @@ module.exports = {
       repo: 'git@github.com:qq865738120/ardeno-server-nest.git',
       path: '/root/projects/ardeno/server/production',
       ssh_options: ['StrictHostKeyChecking=no', 'PasswordAuthentication=no'],
+      'pre-deploy': 'git pull && git tag test-tag && git push origin --tags',
       'post-deploy':
         'npm install && yarn build && pm2 startOrGracefulReload ecosystem.config.js',
     },

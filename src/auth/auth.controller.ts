@@ -13,6 +13,7 @@ import { ApiTags, ApiBearerAuth } from '@nestjs/swagger';
 import { CreateUserRequestDto } from '@/user/dto/create-user-request.dto';
 import { UserLoginRequestDto } from '@/user/dto/user-login-request.dto';
 import { AuthService } from './auth.service';
+import { NestLogger } from 'nest-logs';
 
 @ApiBearerAuth()
 @ApiTags('Auth')
@@ -40,5 +41,10 @@ export class AuthController {
   async login(@Body() @Request() req: UserLoginRequestDto) {
     const result = await this.authService.login(req);
     return result;
+  }
+
+  @Get('public-key')
+  async publicKey() {
+    return this.authService.createPublicKey();
   }
 }

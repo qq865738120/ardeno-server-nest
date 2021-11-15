@@ -1,5 +1,6 @@
 import { ServiceCodeEnum } from '@/common/enums/service-code.enum';
 import { ServiceHttpException } from '@/common/exceptions/service-http-exception';
+import rsaUtil from '@/common/utils/rsa.util';
 import { CreateUserRequestDto } from '@/user/dto/create-user-request.dto';
 import { UserLoginRequestDto } from '@/user/dto/user-login-request.dto';
 import { UserService } from '@/user/user.service';
@@ -56,12 +57,12 @@ export class AuthService {
    * 校验用户
    *
    * @param {string} username - 用户名
-   * @param {string} pass - 密码
+   * @param {string} password - 密码
    * @memberof AuthService
    */
-  async validateUser(username: string, pass: string) {
+  async validateUser(username: string, password: string) {
     const user = await this.userService.findUsername(username);
-    if (user && bcrypt.compareSync(pass, user.password)) {
+    if (user && bcrypt.compareSync(rsaUtil.decrypt(password), user.password)) {
       return true;
     } else {
       throw new ServiceHttpException(
@@ -82,5 +83,15 @@ export class AuthService {
   createToken(username: string, userId: number) {
     const payload = { username, userId };
     return this.jwtService.sign(payload);
+  }
+
+  /**
+   * 获取公钥
+   *
+   * @returns
+   * @memberof AuthService
+   */
+  createPublicKey() {
+    return rsaUtil.generatePublicKey();
   }
 }

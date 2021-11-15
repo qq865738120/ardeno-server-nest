@@ -1,6 +1,7 @@
 import { ServiceCodeEnum } from '@/common/enums/service-code.enum';
 import { ServiceMessageEnum } from '@/common/enums/service-message.enum';
 import { ServiceHttpException } from '@/common/exceptions/service-http-exception';
+import rsaUtil from '@/common/utils/rsa.util';
 import { HttpException, HttpStatus, Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -29,7 +30,10 @@ export class UserService {
         HttpStatus.BAD_REQUEST,
       );
     }
-    const user = this.userRepository.create(createUserRequestDto);
+    const user = this.userRepository.create({
+      ...createUserRequestDto,
+      password: rsaUtil.decrypt(createUserRequestDto.password),
+    });
     return await this.userRepository.save(user);
   }
 

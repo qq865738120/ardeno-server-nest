@@ -11,6 +11,7 @@ import { HttpExceptionFilter } from './common/filters/http-exception.filter';
 import { TransformInterceptor } from './common/interceptors/transform.interceptor';
 import { ServiceHttpExceptionFilter } from './common/filters/service-http-exception.filter';
 import { fastifyHelmet } from 'fastify-helmet';
+import { LoggingInterceptor } from './common/interceptors/logging.interceptor';
 
 async function bootstrap() {
   const env = config.util.getEnv('NODE_ENV') || 'development';
@@ -30,9 +31,14 @@ async function bootstrap() {
     defaultVersion: '1',
   });
 
-  app.useGlobalInterceptors(new TransformInterceptor());
-  app.useGlobalFilters(new HttpExceptionFilter());
-  app.useGlobalFilters(new ServiceHttpExceptionFilter());
+  app.useGlobalInterceptors(
+    new TransformInterceptor(),
+    new LoggingInterceptor(),
+  );
+  app.useGlobalFilters(
+    new HttpExceptionFilter(),
+    new ServiceHttpExceptionFilter(),
+  );
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true,

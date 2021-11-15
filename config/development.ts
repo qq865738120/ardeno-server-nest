@@ -23,9 +23,12 @@ const jwt = {
   expiration: '604800s',
 };
 
+const rsaKey = 'asdfadf2342sdf';
+
 export default {
   test: 'development',
   server,
   database: typeOrmConfig,
   jwt,
+  rsaKey,
 };

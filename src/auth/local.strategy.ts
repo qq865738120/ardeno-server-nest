@@ -1,6 +1,6 @@
 import { ServiceCodeEnum } from '@/common/enums/service-code.enum';
 import { ServiceHttpException } from '@/common/exceptions/service-http-exception';
-import { HttpStatus, Injectable, UnauthorizedException } from '@nestjs/common';
+import { HttpStatus, Injectable } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { Strategy } from 'passport-local';
 import { AuthService } from './auth.service';

@@ -1,4 +1,4 @@
-import { ArgumentsHost, Catch, ExceptionFilter } from '@nestjs/common';
+import { ArgumentsHost, Catch, ExceptionFilter, Logger } from '@nestjs/common';
 import { ServiceHttpException } from '../exceptions/service-http-exception';
 import { ResponseManager } from '../managers/response.manager';
 
@@ -10,6 +10,8 @@ export class ServiceHttpExceptionFilter implements ExceptionFilter {
     const request = ctx.getRequest();
     const code = exception.getCode();
     const status = exception.getStatus();
-    response.code(status).send(new ResponseManager(code, '').getResponse());
+    const responseData = new ResponseManager(code, '').getResponse();
+    Logger.warn(responseData.message, responseData.code);
+    response.code(status).send(responseData);
   }
 }

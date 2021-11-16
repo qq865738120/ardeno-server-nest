@@ -32,8 +32,8 @@ async function bootstrap() {
   });
 
   app.useGlobalInterceptors(
-    new TransformInterceptor(),
     new LoggingInterceptor(),
+    new TransformInterceptor(),
   );
   app.useGlobalFilters(
     new HttpExceptionFilter(),

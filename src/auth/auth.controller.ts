@@ -13,7 +13,6 @@ import { ApiTags, ApiBearerAuth } from '@nestjs/swagger';
 import { CreateUserRequestDto } from '@/user/dto/create-user-request.dto';
 import { UserLoginRequestDto } from '@/user/dto/user-login-request.dto';
 import { AuthService } from './auth.service';
-import { NestLogger } from 'nest-logs';
 
 @ApiBearerAuth()
 @ApiTags('Auth')

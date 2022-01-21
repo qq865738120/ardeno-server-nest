@@ -1,0 +1,7 @@
+@hostPath = {{host}}/{{prefix}}/{{version}}
+
+###
+
+GET {{hostPath}}/personal-page/access HTTP/1.1
+content-type: application/json
+Authorization: {{token}}

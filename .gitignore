@@ -36,3 +36,5 @@ lerna-debug.log*
 
 # pm2
 *.pid
+
+package-lock.json

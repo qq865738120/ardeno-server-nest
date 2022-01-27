@@ -6,6 +6,6 @@ export class PersonalPageAccessEntity {
   @PrimaryGeneratedColumn('uuid')
   id: number;
 
-  @Column({ length: 50, unique: true })
+  @Column({ unique: true })
   host: string;
 }

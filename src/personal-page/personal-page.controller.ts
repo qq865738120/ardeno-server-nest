@@ -7,7 +7,7 @@ export class PersonalPageController {
   constructor(private readonly personalPageService: PersonalPageService) {}
 
   @Get('access')
-  async access(@IpAddress() clinetIp: string) {
-    return await this.personalPageService.access(clinetIp);
+  async access(@Request() req) {
+    return await this.personalPageService.access(req.headers['user-agent']);
   }
 }

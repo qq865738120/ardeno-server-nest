@@ -7,6 +7,8 @@ export const IpAddress = createParamDecorator(
     const req = ctx.switchToHttp().getRequest();
     Logger.log(req.headers, '---------req.headers-------');
     Logger.log(req.clientIp, '---------req.clientIp-------');
+    Logger.log(req.ip, '---------req.ip-------');
+    Logger.log(req.ips, '---------req.ips-------');
     if (req.clientIp) return req.clientIp;
     return requestIp.getClientIp(req);
   },

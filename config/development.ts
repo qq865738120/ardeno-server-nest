@@ -7,10 +7,11 @@ const server = {
 
 const typeOrmConfig: TypeOrmModuleOptions = {
   type: 'postgres',
-  host: 'nas.ddnszwj.top',
+  host: 'frp.ddnszwj.top',
   port: 54321,
   username: 'postgres',
   password: 'Postgres675919',
+  // database: 'ardeno-server-test-db',
   database: 'ardeno-server-test-db',
   entities: [`${__dirname}/../src/**/*.entity.{js,ts}`],
   autoLoadEntities: true,

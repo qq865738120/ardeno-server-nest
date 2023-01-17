@@ -7,7 +7,7 @@ const server = {
 
 const typeOrmConfig: TypeOrmModuleOptions = {
   type: 'postgres',
-  host: 'nas.ddnszwj.top',
+  host: 'frp.ddnszwj.top',
   port: 54321,
   username: 'postgres',
   password: 'Postgres675919',

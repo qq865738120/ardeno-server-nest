@@ -51,7 +51,7 @@ export class LedgerEntity {
   /**
    * 费用金额
    */
-  @Column('money')
+  @Column('int')
   costAmount: number;
 
   /**

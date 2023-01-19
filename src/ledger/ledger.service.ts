@@ -1,6 +1,6 @@
 import { HttpStatus, Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Between, Repository } from 'typeorm';
+import { Between, Not, Repository } from 'typeorm';
 import { LedgerEntity } from './ledger.entity';
 import { HttpService } from '@nestjs/axios';
 import * as config from 'config';
@@ -216,6 +216,7 @@ export class LedgerService {
           new Date(Number(endtime + '000')).toISOString().split('T')[0],
         ),
         ...(type ? { type } : {}),
+        spStatus: Not(7),
       },
       order: {
         time: 'ASC',
@@ -223,23 +224,5 @@ export class LedgerService {
     });
     // this.logger.debug(ledgerList[0].id);
     return ledgerList;
-  }
-
-  async access(host: string) {
-    // Logger.debug(config.get('test'), 'adf');
-    // const access = await this.personalPageRepository.findOne({
-    //   where: { host },
-    // });
-    // if (!access) {
-    //   const newAccess = this.personalPageRepository.create({
-    //     host,
-    //   });
-    //   await this.personalPageRepository.save(newAccess);
-    // }
-    // const result = await this.personalPageRepository
-    //   .createQueryBuilder('access-count')
-    //   .select('COUNT(*) count')
-    //   .getRawOne();
-    // return result.count;
   }
 }

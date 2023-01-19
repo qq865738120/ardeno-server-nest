@@ -12,7 +12,7 @@
     "start": "nest start",
     "start:dev": "cross-env NODE_ENV=development nest start --watch",
     "start:debug": "cross-env NODE_ENV=development nest start --debug --watch",
-    "start:prod": "node dist/src/main",
+    "start:prod": "cross-env NODE_ENV=production node dist/src/main",
     "deploy:prod": "pm2 deploy ecosystem.config.js production update",
     "deploy:dev": "pm2 deploy ecosystem-test.config.js development update",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",

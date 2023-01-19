@@ -12,7 +12,7 @@ export class LedgerController {
     // this.ledgerService.queryNoList('1673300835', '1673600835');
     // const info = await this.ledgerService.queryNoInfo('202301130002');
     // this.ledgerService.saveNoInfo(info);
-    // this.ledgerService.updateNoList('1673300835', '1673857350');
+    this.ledgerService.updateNoList('1673300835', '1674033536');
     // this.ledgerService.queryLedger('1673300835', '1673857350', '孙苑媛开支');
     return this.ledgerService.queryTypeOptions();
   }

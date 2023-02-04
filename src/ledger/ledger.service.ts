@@ -27,7 +27,7 @@ export class LedgerService {
   async getToken() {
     if (
       this.token.expiresTime &&
-      this.token.expiresTime > new Date().getTime() / 1000
+      this.token.expiresTime > new Date().getTime() / 1000 - 20 * 60
     ) {
       return this.token.accessToken as string;
     }
@@ -58,24 +58,30 @@ export class LedgerService {
    */
   async queryNoList(starttime: string, endtime: string) {
     const token = await this.getToken();
-    const noListObservable = this.httpService.post(
-      `${this.config.host}/cgi-bin/oa/getapprovalinfo?access_token=${token}`,
-      {
-        starttime: starttime || '1673300835',
-        endtime: endtime || '1673600835',
-        cursor: 0,
-        size: 100,
-      },
-    );
-    const res = (await lastValueFrom(noListObservable)).data;
-    this.logger.log(res, '企业微信审批单号列表结果');
-    if (res.errcode !== 0) {
-      throw new ServiceHttpException(
-        ServiceCodeEnum.ENTERPRISE_WEIXIN_GET_NO_LIST_FAIL,
-        HttpStatus.INTERNAL_SERVER_ERROR,
+    let cursor = 0;
+    const result: string[] = [];
+    do {
+      const noListObservable = this.httpService.post(
+        `${this.config.host}/cgi-bin/oa/getapprovalinfo?access_token=${token}`,
+        {
+          starttime: starttime || '1673300835',
+          endtime: endtime || '1673600835',
+          cursor,
+          size: 100,
+        },
       );
-    }
-    return (res.sp_no_list || []) as string[];
+      const res = (await lastValueFrom(noListObservable)).data;
+      this.logger.log(res, '企业微信审批单号列表结果');
+      if (res.errcode !== 0) {
+        throw new ServiceHttpException(
+          ServiceCodeEnum.ENTERPRISE_WEIXIN_GET_NO_LIST_FAIL,
+          HttpStatus.INTERNAL_SERVER_ERROR,
+        );
+      }
+      cursor = res.next_cursor || 0;
+      result.push(...res.sp_no_list);
+    } while (cursor);
+    return result;
   }
 
   /**
@@ -92,7 +98,7 @@ export class LedgerService {
       },
     );
     const res = (await lastValueFrom(noInfoObservable)).data;
-    this.logger.log(res, '企业微信审批单号详情结果');
+    this.logger.log(res.errmsg, '企业微信审批单号详情结果');
     if (res.errcode !== 0) {
       throw new ServiceHttpException(
         ServiceCodeEnum.ENTERPRISE_WEIXIN_GET_NO_INFO_FAIL,
@@ -136,8 +142,9 @@ export class LedgerService {
             .date.s_timestamp + '000',
         ),
       )
-        .toISOString()
-        .split('T')[0],
+        .toLocaleDateString()
+        .split('/')
+        .join('-'),
       costAmount: tools.findObjFromArr(detail, 'id', 'item-1503317989302', {})
         .value.new_money,
       costDescription: tools.findObjFromArr(
@@ -212,11 +219,17 @@ export class LedgerService {
     const ledgerList = await this.ledgerRepository.find({
       where: {
         time: Between(
-          new Date(Number(starttime + '000')).toISOString().split('T')[0],
-          new Date(Number(endtime + '000')).toISOString().split('T')[0],
+          new Date(Number(starttime + '000'))
+            .toLocaleDateString()
+            .split('/')
+            .join('-'),
+          new Date(Number(endtime + '000'))
+            .toLocaleDateString()
+            .split('/')
+            .join('-'),
         ),
         ...(type ? { type } : {}),
-        spStatus: Not(7),
+        spStatus: 2,
       },
       order: {
         time: 'ASC',

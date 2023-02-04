@@ -1,4 +1,5 @@
 FROM node:16
+ENV TZ Asia/Shanghai
 WORKDIR /usr/src/app
 COPY . .
 RUN yarn

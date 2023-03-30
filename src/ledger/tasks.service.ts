@@ -38,12 +38,12 @@ export class TasksService {
   /**
    * 同步账单，每周执行一次
    */
-  @Cron('0 0 * * 0')
-  asyncLedgerWeek() {
-    this.logger.log('更新审批列表-每周', '定时任务');
-    const timeInterval = 2 * 31 * 24 * 60 * 60;
-    const starttime = tools.unixTime() - timeInterval;
-    const endtime = tools.unixTime();
-    this.ledgerService.updateNoList(starttime + '', endtime + '');
-  }
+  // @Cron('0 0 * * 0')
+  // asyncLedgerWeek() {
+  //   this.logger.log('更新审批列表-每周', '定时任务');
+  //   const timeInterval = 2 * 31 * 24 * 60 * 60;
+  //   const starttime = tools.unixTime() - timeInterval;
+  //   const endtime = tools.unixTime();
+  //   this.ledgerService.updateNoList(starttime + '', endtime + '');
+  // }
 }

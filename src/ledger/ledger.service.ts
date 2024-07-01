@@ -202,7 +202,7 @@ export class LedgerService {
 
   async queryTypeOptions() {
     const info = await this.queryTemplateInfo();
-    const result = (info.controls[0].config.selector.options || []).map(
+    const result = (info.controls[1].config.selector.options || []).map(
       (item) => item.value[0].text,
     );
     this.logger.debug(result);

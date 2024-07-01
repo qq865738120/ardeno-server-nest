@@ -7,7 +7,7 @@ const server = {
 
 const typeOrmConfig: TypeOrmModuleOptions = {
   type: 'postgres',
-  host: 'frp.ddnszwj.top',
+  host: 'ardeno.fun',
   port: 54321,
   username: 'postgres',
   password: 'Postgres675919',
